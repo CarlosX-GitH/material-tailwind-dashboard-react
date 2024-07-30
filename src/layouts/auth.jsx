@@ -8,6 +8,7 @@ import {
 import { Navbar, Footer } from "@/widgets/layout";
 import routes from "@/routes";
 
+
 export function Auth() {
   const navbarRoutes = [
     {
@@ -19,11 +20,6 @@ export function Auth() {
       name: "profile",
       path: "/dashboard/home",
       icon: UserIcon,
-    },
-    {
-      name: "sign up",
-      path: "/auth/sign-up",
-      icon: UserPlusIcon,
     },
     {
       name: "sign in",

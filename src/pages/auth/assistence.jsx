@@ -13,8 +13,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { JWT_ReadData } from "./jwtdecode";
 let token;
+let userName;
+let employeeId;
 
-export function SignIn() {
+export function Assistence() {
+  const currentDateTime = new Date();
+  userName = Cookies.get('username')
+  employeeId = Cookies.get('employeeId')
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -57,68 +62,24 @@ export function SignIn() {
     <section className="m-8 flex gap-4">
       <div className="w-full lg:w-3/5 mt-24">
         <div className="text-center">
-          <Typography variant="h2" className="font-bold mb-4">Sign In</Typography>
-          <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">Enter your user and password to Sign In.</Typography>
+          <Typography variant="h2" className="font-bold mb-4">Assistence</Typography>
+          <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">{`${currentDateTime.toLocaleString('default', { weekday: 'long', })} ${currentDateTime.toLocaleString('default', { day: '2-digit', })} of ${currentDateTime.toLocaleString('default', { month: 'long' })}  |  ${currentDateTime.toLocaleTimeString()}`}</Typography>
         </div>
         <form onSubmit={handleSubmit} className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
-          <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-              Your username
+          <div className="mb-1 ">
+            <Typography variant="h3" color="blue-gray" className="mb-5 font-medium">
+              Hello! {userName}
             </Typography>
             <Input
               size="lg"
-              type="username"
-              value={username}
-              placeholder="name@mail.com"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-              Password
-            </Typography>
-            <Input
-              type="password"
-              value={password}
-              size="lg"
-              placeholder="********"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              onChange={(e) => setPassword(e.target.value)}
+              type="employeeId"
+              value={employeeId}
+              placeholder="EMPLOYEE ID..."
+              className="flex flex-col !border-t-blue-gray-200 focus:!border-t-gray-900"
             />
           </div>
-          <div className="mt-5 flex flex-row justify-evenly">
-            <Checkbox
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex flex-col  items-center justify-start font-medium"
-                >
-                  I agree the&nbsp;
-                  <a
-                    href="#"
-                    className="font-normal text-black transition-colors hover:text-gray-900 underline"
-                  >
-                    Terms and Conditions
-                  </a>
-                </Typography>
-
-              }
-              containerProps={{ className: "-ml-2.5" }}
-            />
-            <Typography variant="small" className="flex flex-col font-medium text-gray-900 justify-end">
-              <a href="#">
-                Forgot Password
-              </a>
-            </Typography>
-          </div>
-          <Button className="mt-6" fullWidth type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Sign up'}
+          <Button color="green" className="mt-6" fullWidth type="submit" disabled={loading}>
+            {loading ? 'Registering asistence...' : 'Register assistence'}
           </Button>
           {error && <div className="flex w-full flex-col gap-2 pt-4">
             <Alert variant="gradient" color="red" icon={<OctagonAlert />}>
@@ -140,7 +101,7 @@ export function SignIn() {
               <ul className="mt-2 ml-2 list-inside list-disc">
                 <p>
                   <Typography>
-                    Click here to <Link color="black" className="font-bold" to={'../../dashboard/profile'}>redirect</Link>
+                    Click here to <Link color="black" className="font-bold" to={'../../dashboard/home'}>redirect</Link>
                   </Typography>
                 </p>
               </ul>
@@ -159,4 +120,4 @@ export function SignIn() {
   );
 }
 
-export default SignIn;
+export default Assistence;

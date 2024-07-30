@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Cog6ToothIcon } from "@heroicons/react/24/solid";
 import { IconButton } from "@material-tailwind/react";
 import {
@@ -9,10 +9,20 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 export function Dashboard() {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavType } = controller;
+  const navigate = useNavigate();
+  const token = Cookies.get('token');
+
+  useEffect(() => {
+      if (!token) {
+          navigate('/auth/sign-in', { replace: true });
+      }
+  }, [token, navigate]);
 
   return (
     <div className="min-h-screen bg-blue-gray-50/50">
