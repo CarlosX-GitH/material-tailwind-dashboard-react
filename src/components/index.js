@@ -1,3 +1,4 @@
+export * from "@/components/departments/dialogs"
 export * from "@/components/employees/dialogs"
 export * from "@/components/worktimedata/dialogs"
 export * from "@/components/alerts"

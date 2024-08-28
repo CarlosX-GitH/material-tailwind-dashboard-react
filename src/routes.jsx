@@ -5,9 +5,10 @@ import {
   ServerStackIcon,
   RectangleStackIcon,
 } from "@heroicons/react/24/solid";
-import { Profile, Notifications, Employees } from "@/pages/dashboard";
+import { Profile, Notifications, Employees, Departments } from "@/pages/dashboard";
 import { SignIn } from "@/pages/auth";
 import { Assistence } from "./pages/auth/assistence";
+import { Layers3, UserCircle } from "lucide-react";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -25,16 +26,16 @@ export const routes = [
         element: <Profile />,
       },
       {
-        icon: <TableCellsIcon {...icon} />,
+        icon: <UserCircle {...icon} />,
         name: "employees",
         path: "/employees",
         element: <Employees />,
       },
       {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
-        path: "/notifications",
-        element: <Notifications />,
+        icon: <Layers3 {...icon} />,
+        name: "departments",
+        path: "/departments",
+        element: <Departments/>,
       },
     ],
   },

@@ -1,5 +1,5 @@
-import { Notifications } from "@/pages/dashboard";
-import { CheckBadgeIcon, PencilIcon, ShareIcon, UserPlusIcon } from "@heroicons/react/24/solid";
+
+import {  UserPlusIcon } from "@heroicons/react/24/solid";
 import {
     Typography,
     Button,
@@ -16,7 +16,7 @@ import {
 import Cookies from "js-cookie";
 import {  CircleAlertIcon, CopyIcon,  SquarePen, TrashIcon, TriangleAlertIcon, X } from "lucide-react";
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+
 
 export function MessageDialogEmployee(employeeId) {
     const [employee, setEmployee] = useState([]);
@@ -168,20 +168,20 @@ export function AddDialogEmployee({onEmployeeUpdate}) {
             setLoading(true);
 
             const addData = {
-                NAME: `${name}`,
-                LASTNAME: `${lastname}`,
-                DEPARTMENT_ID: `${department_id}`,
-                GENDER: `${gender}`,
-                IS_MANAGER: is_manager,
-                STATUS: `${status}`,
-                CEDULA: `${cedula}`,
-                BANK_ACCOUNT: `${bank_account}`,
-                NATIONALITY: `${nationality}`,
-                CITY: `${city}`,
-                ADDRESS: `${address}`,
-                PHONE_NUMBER: `${phone_number}`,
-                POSITION: `${position}`,
-                CIVIL_STATUS: `${civil_status}`,
+                "name": `${name}`,
+                "lastname": `${lastname}`,
+                "department_id": `${department_id}`,
+                "gender": `${gender}`,
+                "is_manager": is_manager,
+                "status": `${status}`,
+                "cedula": `${cedula}`,
+                "bank_account": `${bank_account}`,
+                "nationality": `${nationality}`,
+                "city": `${city}`,
+                "address": `${address}`,
+                "phone_number": `${phone_number}`,
+                "position": `${position}`,
+                "civil_status": `${civil_status}`,
                 // Add other fields as needed
             };
 
@@ -382,21 +382,21 @@ export function EditDialogEmployee({employeeId, onEmployeeUpdate}) {
             setLoading(true);
 
             const updatedData = {
-                NAME: `${name}`,
-                LASTNAME: `${lastname}`,
-                DEPARTMENT_ID: `${department_id}`,
-                GENDER: `${gender}`,
-                IS_MANAGER: is_manager,
-                STATUS: `${status}`,
-                CEDULA: `${cedula}`,
-                BANK_ACCOUNT: `${bank_account}`,
-                NATIONALITY: `${nationality}`,
-                CITY: `${city}`,
-                ADDRESS: `${address}`,
-                PHONE_NUMBER: `${phone_number}`,
-                POSITION: `${position}`,
-                CIVIL_STATUS: `${civil_status}`,
-                USER_ID: `${user_id}`
+                name: `${name}`,
+                lastname: `${lastname}`,
+                department_id: `${department_id}`,
+                gender: `${gender}`,
+                is_manage: is_manager,
+                satus: `${status}`,
+                cedula: `${cedula}`,
+                bank_account: `${bank_account}`,
+                nationality: `${nationality}`,
+                city: `${city}`,
+                address: `${address}`,
+                phone_number: `${phone_number}`,
+                position: `${position}`,
+                civil_status: `${civil_status}`,
+                user_id: `${user_id}`
                 // Add other fields as needed
             };
 
@@ -445,12 +445,12 @@ export function EditDialogEmployee({employeeId, onEmployeeUpdate}) {
                         <DialogBody>
                             <form onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-4 gap-6 ">
-                                    <div><Input color="black" className="font-bold" label="Name" onChange={(value) => setName(value.target.value)} defaultValue={employee.NAME}></Input> </div>
-                                    <div><Input color="black" className="font-bold" label="Lastname" onChange={(value) => setLastname(value.target.value)} defaultValue={employee.LASTNAME}></Input> </div>
-                                    <div><Input color="black" className="font-bold" label="Bank account" placeholder={employee.BANK_ACCOUNT} type="employee.BANK_ACCOUNT" defaultValue={employee.BANK_ACCOUNT} onChange={(e) => setCedula(e.target.value)} /></div>
-                                    <div><Input color="black" className="font-bold" label="Cedula" placeholder={employee.CEDULA} type="employee.CEDULA" defaultValue={employee.CEDULA} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Name" onChange={(value) => setName(value.target.value)} defaultValue={employee.NAME}></Input> </div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Lastname" onChange={(value) => setLastname(value.target.value)} defaultValue={employee.LASTNAME}></Input> </div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Bank account" placeholder={employee.BANK_ACCOUNT} type="employee.BANK_ACCOUNT" defaultValue={employee.BANK_ACCOUNT} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Cedula" placeholder={employee.CEDULA} type="employee.CEDULA" defaultValue={employee.CEDULA} onChange={(e) => setCedula(e.target.value)} /></div>
                                     <div>
-                                        <Select className="font-bold" label="Department" value={employee?.Department.ID || department_id} onChange={(value) => setDepartmentId(value)}>
+                                        <Select variant="static" className="font-bold" label="Department" value={employee?.Department.ID || department_id} onChange={(value) => setDepartmentId(value)}>
                                             {department && department.map(({ ID, NAME }, index) => (
                                                 <Option key={index} value={ID}>
                                                     {NAME}
@@ -460,7 +460,7 @@ export function EditDialogEmployee({employeeId, onEmployeeUpdate}) {
                                         </Select>
                                     </div>
                                     <div>
-                                        <Select className="font-bold" label="User Assigned" value={employee?.USER_ID || user_id} onChange={(value) => setUserId(value)}>
+                                        <Select variant="static" className="font-bold" label="User Assigned" value={employee?.USER_ID || user_id} onChange={(value) => setUserId(value)}>
                                             {user && user.map(({ ID, NAME }, index) => (
                                                 <Option key={index} value={ID}>
                                                     {NAME}
@@ -470,30 +470,30 @@ export function EditDialogEmployee({employeeId, onEmployeeUpdate}) {
                                         </Select>
                                     </div>
                                     <div>
-                                        <Select className="font-bold" label="Gender" value={employee.GENDER} onChange={(value) => setGender(value)}>
+                                        <Select variant="static" className="font-bold" label="Gender" value={employee.GENDER} onChange={(value) => setGender(value)}>
                                             <Option value="MALE">MALE</Option>
                                             <Option value="FEMALE">FEMALE</Option>
                                         </Select>
                                     </div>
                                     <div>
-                                        <Select className="font-bold" label="Status" value={employee.STATUS} onChange={(value) => setStatus(value)}>
+                                        <Select variant="static" className="font-bold" label="Status" value={employee.STATUS} onChange={(value) => setStatus(value)}>
                                             <Option value="CURRENT">Current</Option>
                                             <Option value="DISMISSED">Dismissed</Option>
                                         </Select>
                                     </div>
                                     <div>
-                                        <Select requiredclassName="font-bold" label="Manager" value={employee?.IS_MANAGER.toString() || is_manager} onChange={(value) => setManager(value)}>
+                                        <Select variant="static" required className="font-bold" label="Manager" value={employee?.IS_MANAGER.toString() || is_manager} onChange={(value) => setManager(value)}>
                                             <Option value="true">Yes</Option>
                                             <Option value="false">No</Option>
                                         </Select>
                                     </div>
 
-                                    <div><Input color="black" className="font-bold" label="Nationality" placeholder={employee.NATIONALITY} type="employee.NATIONALITY" defaultValue={employee.NATIONALITY} onChange={(e) => setCedula(e.target.value)} /></div>
-                                    <div><Input color="black" className="font-bold" label="City" placeholder={employee.CITY} type="employee.CITY" defaultValue={employee.CITY} onChange={(e) => setCedula(e.target.value)} /></div>
-                                    <div><Input color="black" className="font-bold" label="Address" placeholder={employee.ADDRESS} type="employee.ADDRESS" defaultValue={employee.ADDRESS} onChange={(e) => setCedula(e.target.value)} /></div>
-                                    <div><Input color="black" className="font-bold" label="Phone Number" placeholder={employee.PHONE_NUMBER} type="employee.PHONE_NUMBER" defaultValue={employee.PHONE_NUMBER} onChange={(e) => setCedula(e.target.value)} /></div>
-                                    <div><Input color="black" className="font-bold" label="Civil Status" placeholder={employee.CIVIL_STATUS} type="employee.CIVIL_STATUS" defaultValue={employee.CIVIL_STATUS} onChange={(e) => setCedula(e.target.value)} /></div>
-                                    <div><Input color="black" className="font-bold" label="Position" placeholder={employee.POSITION} type="employee.POSITION" defaultValue={employee.POSITION} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Nationality" placeholder={employee.NATIONALITY} type="employee.NATIONALITY" defaultValue={employee.NATIONALITY} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="City" placeholder={employee.CITY} type="employee.CITY" defaultValue={employee.CITY} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Address" placeholder={employee.ADDRESS} type="employee.ADDRESS" defaultValue={employee.ADDRESS} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Phone Number" placeholder={employee.PHONE_NUMBER} type="employee.PHONE_NUMBER" defaultValue={employee.PHONE_NUMBER} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Civil Status" placeholder={employee.CIVIL_STATUS} type="employee.CIVIL_STATUS" defaultValue={employee.CIVIL_STATUS} onChange={(e) => setCedula(e.target.value)} /></div>
+                                    <div><Input variant="static" color="black" className="font-bold" label="Position" placeholder={employee.POSITION} type="employee.POSITION" defaultValue={employee.POSITION} onChange={(e) => setCedula(e.target.value)} /></div>
 
                                     <Button className="" variant="gradient" type="submit" color="gray" disabled={loading}>
                                         {loading ? 'Updating...' : 'Continue'}
